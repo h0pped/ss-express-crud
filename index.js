@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
+var cors = require("cors");
 
 console.log(process.env.PORT);
 
@@ -24,6 +25,7 @@ const options = {
 };
 const swaggerDocs = swaggerJsDoc(options);
 const app = express();
+app.use(cors());
 
 require("dotenv").config({ path: "./env/.env" });
 
